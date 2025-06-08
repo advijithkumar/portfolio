@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-docs": "npm run build && rm -rf docs/* && cp -r dist/* docs/"
+    "update-docs": "npm run build && rm -rf docs/* && cp -r dist/* docs/",
+    "go-live": "npm run update-docs && git add docs && git commit -m 'Update site' && git push"
+
   },
   "dependencies": {
     "axios": "^1.9.0",

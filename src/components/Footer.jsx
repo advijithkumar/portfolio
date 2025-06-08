@@ -10,7 +10,7 @@ const Footer = () => {
                 </div>
                 <div className="info">
                     <i class="bi bi-chat-text-fill"></i>
-                    <p>Designed by Vijith Kumar</p>
+                    <p>AdVijithkumar</p>
                 </div>
             </div>
         </footer>
