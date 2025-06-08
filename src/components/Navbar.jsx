@@ -3,7 +3,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
         <div>
-            <h1>Portfolio</h1>
+            <h1 className='h1-title'>Portfolio</h1>
         </div>
         <div className='navButton'>
             <button id='signIn'>
