@@ -89,12 +89,31 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
   max-width: 800px;
   padding: 20px;
-  background-color: rgba(6, 6, 6, 0.158);
-  border-radius: 10px;
+  background-color: rgba(6, 6, 6, 0.003);
+  border-radius: 50px 250px;
+  box-shadow: 0px 0px 10px 2px rgba(39, 43, 47, 0.763);
+  z-index: 0;
+  transform: rotate(0deg);
+  /* Initial rotation */
+  transition: transform 0.3s ease-in-out;
+  /* Smooth transition for rotation */
+  
+  transition: all 0.3s ease-in-out;
+  animation: bodycontent 2s ease-in-out 0s infinite alternate step-start;
 }
+@keyframes bodycontent {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}     
+
 
 .footer {
   background-color: rgba(27, 26, 26, 0.189);
@@ -178,56 +197,51 @@ button {
   justify-content: center;
   height: 30vh;
   width: 250px;
-  max-width: 400px;
-  background-color: rgba(26, 25, 25, 0.048);
-  border-radius: 10px;
+  background-color: rgba(12, 12, 12, 0);
+  border-radius: 250px 50px;
   /*div to hold the boxes*/
   flex-wrap: wrap;
   overflow: scroll;
-  padding: 20px;
+  padding:10px;
   scroll-behavior: smooth;
   /* scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: rgb(0, 0, 0) transparent;
-
-  box-shadow: 0px 0px 10px 2px rgba(39, 43, 47, 0.763);
-  transition: all 0.3s ease-in-out;
-
-}
-.Home .box{
-  width: 150px;
-  height: 150px;
-  background:fixed;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
   box-shadow: 0px 0px 10px 2px rgba(39, 43, 47, 0.763);
   transition: all 0.3s ease-in-out;
   
 
-
 }
-.box:hover{
-  scale: 1.1;;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  background-color: rgba(6, 6, 6, 0.3);
-  box-shadow: 0px 0px 10px 2px rgba(10, 139, 244, 0.763);
-
-}
-.box:nth-child(1)::before {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(6, 6, 6, 0.158);
-}
-.box:nth-child(n) {
-  fill: rgba(255, 255, 255, 0.751);
-  background-color: #15558a27;
+.box {
+  width: 150px;
+  height: 150px;
   background-image: url(./assets/potfolio.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 50px 50px 0px;
+  margin: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px 2px rgba(39, 43, 47, 0.763);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  background-color: rgb(6, 6, 6); /* semi-transparent background */
+  color: rgba(255, 255, 255, 0.751);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  top: 20px; /* initial position */
+  left: 20px; /* initial position */
+}
+
+
+.box:hover {
+  background-color: rgba(187, 69, 69, 0); /* solid color */
+  background-image: none; /* remove image */
 }
