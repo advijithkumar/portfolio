@@ -1,11 +1,14 @@
-//
+# 1. Build first
+npm run build
 
-1. git add .
+# 2. Copy build output to root
+cp -r dist/* .
 
-2. git commit -m "title change to adawnix"
+# 3. Add changes
+git add .
 
-3. npm run build
+# 4. Commit
+git commit -m "Deploy: updated portfolio build"
 
-4. cp -r dist/* .
-
-5. git push -f
+# 5. Push (NO force)
+git push
