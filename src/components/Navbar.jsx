@@ -1,20 +1,31 @@
 import React from 'react';
-const Navbar = () => {
+
+const Navbar = ({ theme, toggleTheme, toggleProfile }) => {
   return (
-    <nav className="navbar">
-        <div>
-            <h1 className='h1-title'>Portfolio</h1>
+    <nav>
+      <div className="nav-logo">
+        <div className="status-indicator">
+          <div className="dot"></div>
+          <h1>adawnix</h1>
         </div>
-        <div className='navButton'>
-            <button id='signIn'>
-                <i class="bi bi-lightbulb"></i>
-            </button>
-            <button id='getStarted'>
-                <i className="bi bi-person-circle"></i>
-            </button>
-        </div>
-      
+      </div>
+      <div className="nav-actions">
+        <button
+          className="fui-btn-icon"
+          onClick={toggleTheme}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          <i className={`bi bi-${theme === 'dark' ? 'sun' : 'moon-stars'}`}></i>
+        </button>
+        <button
+          className="fui-btn-icon"
+          title="View Profile"
+          onClick={toggleProfile}
+        >
+          <i className="bi bi-person-circle"></i>
+        </button>
+      </div>
     </nav>
   );
-}
+};
 export default Navbar;

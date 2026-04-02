@@ -1,0 +1,296 @@
+/* ── Card Outer Shell ──────────────────────────────── */
+.fui-card {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--fui-bg);
+  border: var(--fui-border-width) solid var(--fui-primary);
+  color: var(--fui-text);
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  margin: 2rem auto;
+  backdrop-filter: blur(5px);
+  transition: var(--fui-transition);
+}
+
+/* ── Corner Bracket Decorations ────────────────────── */
+.fui-card::before, .fui-card::after,
+.fui-card-inner::before, .fui-card-inner::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--fui-primary);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fui-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.fui-card::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.fui-card-inner::before { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.fui-card-inner::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.fui-card-inner { position: relative; }
+
+/* ── Scanline Divider ──────────────────────────────── */
+.fui-scanline {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--fui-primary) 0px,
+    var(--fui-primary) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.3;
+  margin: 1.5rem 0;
+}
+
+/* ── Header Section ────────────────────────────────── */
+.fui-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fui-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fui-primary);
+  animation: pulse 2s infinite;
+}
+
+.fui-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fui-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.fui-description {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+/* ── Tech Stack Tags ───────────────────────────────── */
+.fui-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.fui-tag {
+  font-size: 0.7rem;
+  border: var(--fui-border-width) solid var(--fui-primary);
+  padding: 4px 12px;
+  color: var(--fui-primary);
+  background: var(--fui-panel);
+}
+
+/* ── Carousel / Slideshow ──────────────────────────── */
+.fui-carousel {
+  position: relative;
+  background: var(--fui-panel);
+  border: var(--fui-border-width) solid var(--fui-primary);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.fui-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.fui-carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.fui-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fui-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--fui-panel);
+  border: var(--fui-border-width) solid var(--fui-primary);
+  color: var(--fui-primary);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fui-carousel-btn:hover {
+  background: var(--fui-primary);
+  color: var(--fui-bg);
+}
+
+.fui-carousel-btn--prev { left: 10px; }
+.fui-carousel-btn--next { right: 10px; }
+
+/* ── Features List ─────────────────────────────────── */
+.fui-features {
+  background: var(--fui-panel);
+  border: var(--fui-border-width) solid var(--fui-primary);
+  padding: 1rem;
+}
+
+.fui-features-heading {
+  font-size: 0.8rem;
+  color: var(--fui-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.fui-features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.fui-features-list li {
+  font-size: 0.8rem;
+  padding: 4px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.fui-features-list li::before {
+  content: '>';
+  color: var(--fui-primary);
+}
+
+/* ── CTA Buttons ───────────────────────────────────── */
+.fui-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.fui-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border: var(--fui-border-width) solid var(--fui-primary);
+  transition: var(--fui-transition);
+}
+
+.fui-btn--primary {
+  background: var(--fui-primary);
+  color: var(--fui-bg);
+}
+
+.fui-btn--primary:hover {
+  background: transparent;
+  color: var(--fui-primary);
+}
+
+.fui-btn--secondary {
+  background: transparent;
+  color: var(--fui-primary);
+}
+
+.fui-btn--secondary:hover {
+  background: var(--fui-primary);
+  color: var(--fui-bg);
+}
+
+.fui-section-label {
+  font-size: 0.6rem;
+  color: var(--fui-primary);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+/* ── Responsive Card ───────────────────────────── */
+@media (max-width: 600px) {
+  .fui-card {
+    padding: 1.5rem 1rem;
+    margin: 1rem auto;
+  }
+
+  .fui-title {
+    font-size: 1rem;
+  }
+
+  .fui-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ── Zoom Preview Overlay ───────────────────────── */
+.fui-zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.fui-zoom-container {
+  width: fit-content;
+  height: fit-content;
+  max-width: 95vw;
+  max-height: 90vh;
+  position: relative;
+  border: var(--fui-border-width) solid var(--fui-primary);
+  background: var(--fui-bg);
+  padding: 10px;
+  box-shadow: 0 0 40px var(--fui-glitch);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fui-zoom-img {
+  max-width: 80vw;
+  max-height: 65vh;
+  display: block;
+  object-fit: contain;
+}
+
+.fui-zoom-label {
+  color: var(--fui-primary);
+  font-size: 0.7rem;
+  padding: 10px;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .fui-zoom-container {
+    width: 95%;
+    padding: 5px;
+  }
+}

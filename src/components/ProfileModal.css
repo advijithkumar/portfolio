@@ -1,0 +1,128 @@
+/* ── Profile Modal Styles ──────────────────────────── */
+.fui-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.fui-modal {
+  background: var(--fui-bg);
+  border: var(--fui-border-width) solid var(--fui-primary);
+  color: var(--fui-text);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  padding: 3rem 2rem;
+  box-shadow: 0 0 50px var(--fui-glitch);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fui-primary) transparent;
+}
+
+.fui-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: var(--fui-border-width) solid var(--fui-primary);
+  color: var(--fui-primary);
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.fui-modal-close:hover {
+  background: var(--fui-primary);
+  color: var(--fui-bg);
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-title {
+  font-size: 1.5rem;
+  color: var(--fui-primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.profile-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+.profile-content {
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.profile-section {
+  margin-bottom: 1.5rem;
+}
+
+.profile-label {
+  color: var(--fui-primary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.skill-tag {
+  font-size: 0.7rem;
+  border: var(--fui-border-width) solid var(--fui-primary);
+  padding: 4px 10px;
+  background: var(--fui-panel);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .fui-modal {
+    padding: 2.5rem 1.2rem;
+    width: 95%;
+    max-height: 85vh;
+  }
+  .profile-title {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  .fui-modal-close {
+    top: 5px;
+    right: 5px;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    background: var(--fui-bg);
+    z-index: 100;
+  }
+  .profile-header {
+    margin-top: 1rem;
+  }
+}

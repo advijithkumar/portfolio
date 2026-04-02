@@ -1,17 +1,17 @@
 import Navbar from '../components/Navbar';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
-import '../index.css'; 
-const MainLayout = ()=> {
-    return(
-        <>
-         <Navbar/>
-         <div className="container">
-            <Body/>
-            <Footer/>
-         </div>
-        </>
-       
-    )
-}
+
+const MainLayout = ({ theme, toggleTheme, toggleProfile, setZoomImg }) => {
+  return (
+    <>
+      <Navbar theme={theme} toggleTheme={toggleTheme} toggleProfile={toggleProfile} />
+      <main className="container">
+        <Body setZoomImg={setZoomImg} />
+      </main>
+      <Footer />
+    </>
+  );
+};
+
 export default MainLayout;
