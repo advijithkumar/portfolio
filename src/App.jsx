@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
-import ProfileModal from './components/ProfileModal';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import About from './pages/About';
+import Career from './pages/Career';
+import CareerDetails from './pages/CareerDetails';
+import Contact from './pages/Contact';
 import './index.css'; 
 
 function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('fui-theme') || 'dark';
   });
-  const [showProfile, setShowProfile] = useState(false);
-  const [zoomImg, setZoomImg] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -20,36 +24,18 @@ function App() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  const toggleProfile = () => setShowProfile(!showProfile);
-
   return (
-    <>
-      <MainLayout 
-        theme={theme} 
-        toggleTheme={toggleTheme} 
-        toggleProfile={toggleProfile}
-        setZoomImg={setZoomImg}
-      >
-        <Routes>
-          <Route path="/" element={<div className="fui-welcome">// system_ready: status_ok</div>} />
-        </Routes>
-      </MainLayout>
-      <ProfileModal isOpen={showProfile} onClose={() => setShowProfile(false)} />
-      
-      {/* ── Global Zoom Overlay ────────────────── */}
-      {zoomImg && (
-        <div 
-          className="fui-zoom-overlay" 
-          onClick={() => setZoomImg(null)}
-          style={{ cursor: 'pointer' }}
-        >
-          <div className="fui-zoom-container" onClick={(e) => e.stopPropagation()} style={{ cursor: 'default' }}>
-            <img src={zoomImg.src} alt={zoomImg.alt} className="fui-zoom-img" />
-            <div className="fui-zoom-label">// {zoomImg.alt.toLowerCase()} _preview</div>
-          </div>
-        </div>
-      )}
-    </>
+    <MainLayout theme={theme} toggleTheme={toggleTheme}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/career/:id" element={<CareerDetails />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </MainLayout>
   );
 }
 

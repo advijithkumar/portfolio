@@ -2,12 +2,12 @@ import Navbar from '../components/Navbar';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 
-const MainLayout = ({ theme, toggleTheme, toggleProfile, setZoomImg }) => {
+const MainLayout = ({ children, theme, toggleTheme, toggleProfile }) => {
   return (
     <>
       <Navbar theme={theme} toggleTheme={toggleTheme} toggleProfile={toggleProfile} />
-      <main className="container">
-        <Body setZoomImg={setZoomImg} />
+      <main>
+        {children}
       </main>
       <Footer />
     </>
